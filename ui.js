@@ -3,6 +3,8 @@
 
   const arrayContainer = document.getElementById("arrayContainer");
   const algorithmSelect = document.getElementById("algorithmSelect");
+  const speedSlider = document.getElementById("speedSlider");
+  const speedValue = document.getElementById("speedValue");
   const generateBtn = document.getElementById("generateBtn");
   const sortBtn = document.getElementById("sortBtn");
 
@@ -41,6 +43,14 @@
     return algorithmSelect.value;
   }
 
+  function getSpeedDelay() {
+    return Number(speedSlider.value);
+  }
+
+  function updateSpeedValue() {
+    speedValue.textContent = `${getSpeedDelay()}ms`;
+  }
+
   function onGenerate(callback) {
     generateBtn.addEventListener("click", callback);
   }
@@ -49,10 +59,21 @@
     sortBtn.addEventListener("click", callback);
   }
 
+  function onSpeedChange(callback) {
+    speedSlider.addEventListener("input", () => {
+      updateSpeedValue();
+      callback(getSpeedDelay());
+    });
+  }
+
+  updateSpeedValue();
+
   window.SortingUI = {
     getSelectedAlgorithm,
+    getSpeedDelay,
     onGenerate,
     onSort,
+    onSpeedChange,
     renderArray,
     setControlsDisabled,
   };

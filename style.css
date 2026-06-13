@@ -87,6 +87,32 @@ select {
   cursor: pointer;
 }
 
+.speed-control {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 8px;
+  color: #cbd5e1;
+  background: #111827;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.speed-control input {
+  width: 120px;
+  accent-color: #2dd4bf;
+  cursor: pointer;
+}
+
+.speed-control output {
+  min-width: 48px;
+  color: #f8fafc;
+  text-align: right;
+}
+
 button:hover {
   background: #5eead4;
   box-shadow: 0 10px 30px rgba(45, 212, 191, 0.25);
@@ -105,7 +131,8 @@ button:active {
 }
 
 button:focus-visible,
-select:focus-visible {
+select:focus-visible,
+.speed-control input:focus-visible {
   outline: 3px solid rgba(94, 234, 212, 0.45);
   outline-offset: 3px;
 }
@@ -175,6 +202,16 @@ select:focus-visible {
 
   .select-label {
     align-self: flex-start;
+  }
+
+  .speed-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .speed-control input {
+    flex: 1;
+    width: auto;
   }
 
   button,
