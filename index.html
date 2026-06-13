@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="header">
+      <div>
+        <p class="eyebrow">Array Visualizer</p>
+        <h1>Sorting Visualizer</h1>
+      </div>
+      <div class="controls">
+        <label class="select-label" for="algorithmSelect">Algorithm</label>
+        <select id="algorithmSelect" aria-label="Choose sorting algorithm">
+          <option value="insertion">Insertion Sort</option>
+          <option value="selection">Selection Sort</option>
+        </select>
+        <button id="generateBtn" type="button">Generate Array</button>
+        <button id="sortBtn" type="button">Sort</button>
+      </div>
+    </section>
+
+    <section class="visualizer" aria-label="Random array bars">
+      <div id="arrayContainer" class="array-container"></div>
+    </section>
+  </main>
+
+  <script src="ui.js"></script>
+  <script src="animation.js"></script>
+  <script src="sorting-algorithms.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
