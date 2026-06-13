@@ -50,5 +50,7 @@ async function startSort() {
 
 window.SortingUI.onGenerate(refreshArray);
 window.SortingUI.onSort(startSort);
+window.SortingUI.onSpeedChange(window.SortingAnimation.setDelay);
+window.SortingAnimation.setDelay(window.SortingUI.getSpeedDelay());
 
 refreshArray();

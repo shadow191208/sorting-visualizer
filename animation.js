@@ -1,7 +1,10 @@
 (function () {
   "use strict";
 
-  const SORT_DELAY = 100;
+  const MIN_DELAY = 10;
+  const MAX_DELAY = 500;
+
+  let currentDelay = 100;
 
   function delay(ms) {
     return new Promise((resolve) => {
@@ -19,11 +22,16 @@
 
   async function showStep(values, comparingIndexes = [], sortedIndexes = []) {
     window.SortingUI.renderArray(values, comparingIndexes, sortedIndexes);
-    await delay(SORT_DELAY);
+    await delay(currentDelay);
+  }
+
+  function setDelay(delayValue) {
+    currentDelay = Math.min(MAX_DELAY, Math.max(MIN_DELAY, Number(delayValue)));
   }
 
   window.SortingAnimation = {
     getIndexRange,
+    setDelay,
     showStep,
   };
 })();
